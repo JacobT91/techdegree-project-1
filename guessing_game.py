@@ -36,13 +36,17 @@ Welcome to the number guessing game!!!
 --------------------------------------
 """)
 
+    
     while True:
+        counter = 1
         rand = random.randint(1, 10)
-
         guess = int(input("Pick a number between 1 and 10: "))
+        
+        
         while guess > 10:
             guess = int(input("That is outside the number range. Please try agian: "))
-        counter = 1
+        
+        
         if guess != rand:
             counter += 1
             if guess < rand:
@@ -50,15 +54,21 @@ Welcome to the number guessing game!!!
             elif guess > rand:
                 print("It's lower")
             guess = int(input("Pick a number between 1 and 10: "))
+            
+            
         else:
             print("You got it! It took you {} tries.".format(counter))
         play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")
         if play_agian != 'y':
             print("\n\nClosing game, see you next time!")
             break
+            
+            
         else:
             high_score(counter, high)
             continue
+            
+            
 high = 10
 def high_score(points, high):
     if points < high:
