@@ -59,6 +59,8 @@ Welcome to the number guessing game!!!
         else:
             print("You got it! It took you {} tries.".format(counter))
         play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")
+
+        
         if play_agian != 'y':
             print("\n\nClosing game, see you next time!")
             break
