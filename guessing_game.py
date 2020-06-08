@@ -36,53 +36,37 @@ Welcome to the number guessing game!!!
 --------------------------------------
 """)
 
-    
-    while True:
-        counter = 1
-        rand = random.randint(1, 10)
-        guess = int(input("Pick a number between 1 and 10: "))
-        
-        
-        while guess > 10:
-            guess = int(input("That is outside the number range. Please try agian: "))
-        
-        
-        if guess != rand:
-            counter += 1
-            if guess < rand:
-                print("It's higher")
-            elif guess > rand:
-                print("It's lower")
+    ran_num = random.randint(1, 10)
+    counter = 1
+    h_score = int()
+    while True:        
+        try:
             guess = int(input("Pick a number between 1 and 10: "))
-            
-            
-        else:
-            print("You got it! It took you {} tries.".format(counter))
-        play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")
-
+            if guess < 1 or 10 < guess:
+                raise ValueError("That is an in valid value. Please try agian.")
+        except ValueError as err:
+            print("Your guess must be between 1 and 10.")
+            print("{}".format(err))
+            continue
         
-        if play_agian != 'y':
-            print("\n\nClosing game, see you next time!")
-            break
-            
-            
-        else:
-            high_score(counter, high)
+        if guess != ran_num:
+            counter += 1
+            if guess < ran_num:
+                print("It's higher")
+            elif guess > ran_num:
+                print("It's lower")
             continue
             
-            
-high = 10
-def high_score(points, high):
-    if points < high:
-        high = points
-    print("The HIGHSCORE is {}".format(high))
-        
-            
-    
-    
-        
-        
-     
-
+        elif guess == ran_num:
+            print("\nYou got it! It took you {} tries.".format(counter))
+            play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")        
+            if play_agian.lower() == 'y':
+                if h_score < counter:
+                    counter = h_score
+                print("\nThe high score is {}.".format(h_score))    
+                start_game()
+                
+            elif play_agian == 'n':
+                break
 # Kick off the program by calling the start_game function.
 start_game()
