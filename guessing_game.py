@@ -62,7 +62,7 @@ Welcome to the number guessing game!!!
             play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")        
             if play_agian.lower() == 'y':
                 if h_score < counter:
-                    counter = h_score
+                    h_score = counter
                 print("\nThe high score is {}.".format(h_score))    
                 start_game()
                 
