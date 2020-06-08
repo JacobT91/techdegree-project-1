@@ -43,7 +43,7 @@ Welcome to the number guessing game!!!
         try:
             guess = int(input("Pick a number between 1 and 10: "))
             if guess < 1 or 10 < guess:
-                raise ValueError("That is an in valid value. Please try agian.")
+                raise ValueError("That is an invalid value. Please try agian.")
         except ValueError as err:
             print("Your guess must be between 1 and 10.")
             print("{}".format(err))
@@ -67,6 +67,7 @@ Welcome to the number guessing game!!!
                 start_game()
                 
             elif play_agian == 'n':
+                print("Closing game. Thanks for playing.")
                 break
 # Kick off the program by calling the start_game function.
 start_game()
