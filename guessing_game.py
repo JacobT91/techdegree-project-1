@@ -26,23 +26,23 @@ def start_game(h_score):
 
             elif guess > ran_num:
                 print("It's lower")
-
-            continue
             
-        elif guess == ran_num:
+            continue
+
+        if guess == ran_num:
             print("\nYou got it! It took you {} tries.".format(counter))
-            play_agian = input("You won! Would you like to play agian? [y]es/[n]o: ")    
+            play_agian = input("Winner! Would you like to play agian? [y]es/[n]o: ")
+            if h_score > counter:
+                h_score = counter
+            print("\nThe high score is {}.\n".format(h_score))
                 
             if play_agian.lower() == 'y':
-                if h_score > counter:
-                    h_score = counter
-
-                print("\nThe high score is {}.\n".format(h_score))    
                 start_game(h_score)
                 
-            elif play_agian != 'y':
+            else:
                 print("\nClosing game. Thanks for playing.\n")
-                break
-
+                
+             
+        break    
 
 start_game(high_score)
